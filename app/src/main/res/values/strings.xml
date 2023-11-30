@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WaveHealthNews</string>
+    <string name="news_list_screen_loading_content">Loading Content</string>
+    <string name="news_list_screen_no_content">Nothing Left to Display</string>
+    <string name="news_list_screen_back_to_top">Back to Top</string>
+    <string name="news_details_screen_label_story_by">Story By:</string>
+    <string name="news_details_screen_label_read_more">Read more by clicking below:</string>
+</resources>
