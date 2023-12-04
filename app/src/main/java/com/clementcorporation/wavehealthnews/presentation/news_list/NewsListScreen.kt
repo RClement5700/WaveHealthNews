@@ -40,7 +40,6 @@ import androidx.navigation.NavHostController
 import com.clementcorporation.wavehealthnews.R
 import com.clementcorporation.wavehealthnews.data.dtos.toNewListItem
 import com.clementcorporation.wavehealthnews.util.NewsListItemTile
-import com.clementcorporation.wavehealthnews.util.NewsScreenListState
 import com.clementcorporation.wavehealthnews.util.WaveHealthNewsScreens
 import com.clementcorporation.wavehealthnews.util.WaveNewsToolBar
 import com.google.gson.Gson
@@ -98,17 +97,14 @@ fun NewsListScreen(navController: NavHostController) {
                     when (viewModel.listState) {
                         NewsScreenListState.LOADING -> {
                             Column(
-                                modifier = Modifier
-                                    .fillParentMaxSize(),
+                                modifier = Modifier.fillParentMaxSize(),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center,
                             ) {
                                 Text(
-                                    modifier = Modifier
-                                        .padding(8.dp),
+                                    modifier = Modifier.padding(8.dp),
                                     text = stringResource(R.string.news_list_screen_loading_content)
                                 )
-
                                 CircularProgressIndicator(color = Color.Black)
                             }
                         }
@@ -135,7 +131,6 @@ fun NewsListScreen(navController: NavHostController) {
                             ) {
                                 Icon(imageVector = Icons.Rounded.Face, contentDescription = "Dissatisfied Face")
                                 Text(text = stringResource(R.string.news_list_screen_no_content))
-
                                 TextButton(
                                     modifier = Modifier
                                         .padding(top = 8.dp),

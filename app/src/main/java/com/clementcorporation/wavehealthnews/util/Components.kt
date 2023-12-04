@@ -46,7 +46,7 @@ fun WaveNewsToolBar(
     ) {
         if (showBackButton)
             IconButton(onClick = { navController.popBackStack() }) {
-                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
+                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back Button")
             }
         Spacer(modifier = Modifier.width(8.dp))
         Image(
@@ -96,15 +96,13 @@ fun NewsListItemTile(newsListItem: NewsListItem, onClick: () -> Unit) {
                     contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                newsListItem.date?.let {
-                    Text(
-                        text = it,
-                        textAlign = TextAlign.Start,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.body2
-                    )
-                }
+                Text(
+                    text = newsListItem.date,
+                    textAlign = TextAlign.Start,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = MaterialTheme.typography.body2
+                )
             }
             Text(
                 modifier = Modifier.padding(4.dp),

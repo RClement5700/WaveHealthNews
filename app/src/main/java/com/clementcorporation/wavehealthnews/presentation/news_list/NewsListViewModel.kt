@@ -12,7 +12,6 @@ import com.clementcorporation.wavehealthnews.domain.WaveHealthNewsRepository
 import com.clementcorporation.wavehealthnews.util.Constants.API_RESPONSE_OK
 import com.clementcorporation.wavehealthnews.util.Constants.DEFAULT_API_RESPONSE_PAGE
 import com.clementcorporation.wavehealthnews.util.Constants.DEFAULT_API_RESPONSE_PAGE_SIZE
-import com.clementcorporation.wavehealthnews.util.NewsScreenListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

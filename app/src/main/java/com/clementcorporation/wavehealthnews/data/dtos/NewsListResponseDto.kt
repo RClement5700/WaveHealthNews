@@ -37,10 +37,10 @@ data class Article(
 fun Article.toNewListItem(): NewsListItem {
     val us = Locale.US
     val format = SimpleDateFormat(API_DATE_PATTERN, us)
-    var publishedDate: String? = null
+    var publishedDate = ""
     try {
         val date: Date? = format.parse(publishedAt)
-        publishedDate = date?.let { SimpleDateFormat(US_DATE_PATTERN, us).format(it) }
+        publishedDate = date?.let { SimpleDateFormat(US_DATE_PATTERN, us).format(it) } ?: ""
     } catch (e: ParseException) {
         e.printStackTrace()
     }

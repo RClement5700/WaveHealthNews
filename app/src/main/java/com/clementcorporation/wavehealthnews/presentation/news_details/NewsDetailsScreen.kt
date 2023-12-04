@@ -2,6 +2,7 @@ package com.clementcorporation.wavehealthnews.presentation.news_details
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -121,24 +123,25 @@ fun NewsDetailsScreen(article: Article?, navController: NavHostController) {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(text = story.content.substring(0, story.content.lastIndexOf(CONTENT_DELIMITER)))
-                Text(
-                    text = stringResource(id = R.string.news_details_screen_label_read_more),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
-                )
+                val uriHandler = LocalUriHandler.current
                 val uri = story.url
                 val sourceHyperlink = buildAnnotatedString {
                     withStyle(style = SpanStyle(textDecoration = TextDecoration.Underline, color = Color.Blue)) {
-                        append(uri)
+                        append(stringResource(id = R.string.news_details_screen_label_read_more))
                         addStringAnnotation(
                             tag = HYPERLINK_TAG,
                             annotation = uri,
-                            start = length - uri.length,
+                            start = 0,
                             end = length
                         )
                     }
                 }
-                Text(text = sourceHyperlink)
+                Text(
+                    text = sourceHyperlink,
+                    modifier = Modifier.clickable {
+                        uriHandler.openUri(uri)
+                    }
+                )
             }
         }
     }

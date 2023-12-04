@@ -1,4 +1,4 @@
-package com.clementcorporation.wavehealthnews.util
+package com.clementcorporation.wavehealthnews.presentation.main
 
 import android.os.Bundle
 import androidx.navigation.NavType

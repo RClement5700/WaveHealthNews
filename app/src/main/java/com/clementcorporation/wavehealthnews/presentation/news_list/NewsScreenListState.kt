@@ -1,4 +1,4 @@
-package com.clementcorporation.wavehealthnews.util
+package com.clementcorporation.wavehealthnews.presentation.news_list
 
 enum class NewsScreenListState {
     IDLE,
